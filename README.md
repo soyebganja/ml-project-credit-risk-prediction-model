@@ -26,12 +26,14 @@ Credit risk assessment is crucial for financial institutions to minimize default
 ## Features
 
 - Comprehensive data preprocessing pipeline for financial data
-- Feature selection and engineering for credit risk factors
-- Implementation of multiple classification algorithms
+- Feature engineering focused on credit risk indicators
+- Implementation of multiple classification algorithms (Random Forest, XGBoost, Neural Networks)
 - Model evaluation with industry-relevant metrics (AUC-ROC, precision, recall)
-- Class imbalance handling techniques
-- Model interpretability tools for regulatory compliance
-- Risk score generation based on probability predictions
+- Class imbalance handling techniques for default prediction
+- Credit scoring methodology based on default probability
+- Risk categorization (Excellent, Good, Fair, Poor)
+- Interactive web interface for real-time predictions
+- Detailed explanation of risk factors influencing predictions
 
 ---
 
@@ -52,49 +54,48 @@ Credit risk assessment is crucial for financial institutions to minimize default
 ## Dataset
 
 The dataset used contains the following features:
-- `customer_id`: Unique identifier for each customer
-- `loan_amount`: Amount of loan requested
-- `term`: Loan term in months
-- `interest_rate`: Interest rate on the loan
-- `installment`: Monthly payment amount
-- `annual_income`: Borrower's annual income
-- `debt_to_income`: Debt-to-income ratio
-- `credit_score`: Numeric credit score
-- `employment_length`: Years at current employment
-- `home_ownership`: Status of home ownership
-- `purpose`: Purpose of the loan
 - `age`: Age of the borrower
-- `loan_history`: Number of previous loans
-- `delinquencies`: Number of delinquencies in the past 2 years
+- `income`: Annual income of the borrower
+- `loan_amount`: Amount of loan requested
+- `loan_to_income_ratio`: Ratio of loan amount to income
+- `loan_tenure`: Loan term in months
+- `avg_days_past_due`: Average days past due for previous loans
+- `delinquency_ratio`: Ratio of delinquent payments to total payments
+- `credit_utilization`: Percentage of available credit being used
+- `open_loan_accounts`: Number of currently open loan accounts
+- `residence_type`: Type of residence (Owned, Rented, etc.)
+- `loan_purpose`: Purpose of the loan (Education, Home, etc.)
+- `education`: Education level of the borrower
+- `loan_type`: Type of loan (Secured, Unsecured)
 - `default`: Whether the borrower defaulted (target variable)
 
 **Note**: Sensitive data should be handled according to relevant data protection regulations.
 
 ---
 
-## Setup and Installation
+## Project Structure
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/ml-project-credit-risk-prediction-model.git
-   cd ml-project-credit-risk-prediction-model
-   ```
-
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Run the main script:
-   ```bash
-   python src/main.py
-   ```
+```
+ml-project-credit-risk-prediction-model/
+├── data/
+│   ├── raw/              # Raw data files
+│   └── processed/        # Processed data files
+├── notebooks/            # Jupyter notebooks for exploration and analysis
+├── src/
+│   ├── __init__.py
+│   ├── app.py            # Web application interface
+│   ├── preprocess.py     # Data preprocessing scripts
+│   ├── features.py       # Feature engineering
+│   ├── train.py          # Model training
+│   ├── evaluate.py       # Model evaluation
+│   ├── predict.py        # Prediction script
+│   └── utils.py          # Utility functions
+├── models/               # Saved model files
+├── tests/                # Unit tests
+├── requirements.txt      # Project dependencies
+├── setup.py              # Package installation
+└── README.md             # Project documentation
+```
 
 ---
 
@@ -109,29 +110,49 @@ The dataset used contains the following features:
    ```bash
    python src/train.py
    ```
-4. Evaluate the model:
-   ```bash
-   python src/evaluate.py
-   ```
-5. Generate predictions:
+4. Make predictions using the model:
    ```bash
    python src/predict.py --input your_data.csv
    ```
+5. Alternatively, use the web interface:
+   ```bash
+   python src/app.py
+   ```
+   Then navigate to `http://localhost:5000` in your browser
+
+### Sample Input Parameters
+
+```
+Age: 35
+Income: 75000
+Loan Amount: 160000
+Loan to Income Ratio: 2.13
+Loan Tenure (months): 60
+Avg Days Past Due (DPD): 3
+Delinquency Ratio: 0.05
+Credit Utilization (%): 35
+Open Loan Accounts: 2
+Residence Type: Owned
+Loan Purpose: Education
+Education: Graduate
+Loan Type: Unsecured
+```
 
 ---
 
-## Model Performance
+## Model Output
 
-Our final model achieves:
-- AUC-ROC: 0.92
-- Precision: 0.85
-- Recall: 0.78
-- F1-Score: 0.81
+The model generates the following outputs:
+- **Default Probability**: Percentage likelihood of loan default (e.g., 19.73%)
+- **Credit Score**: Numerical credit score (e.g., 781.65)
+- **Rating**: Credit quality rating (e.g., Excellent, Good, Fair, Poor)
 
-Performance metrics by risk category:
-- Low risk: 96% accuracy
-- Medium risk: 74% accuracy
-- High risk: 59% accuracy
+Sample output:
+```
+Default Probability: 19.73%
+Credit Score: 781.65
+Rating: Excellent
+```
 
 ---
 
@@ -160,7 +181,6 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
 ## Contact
 
 For any inquiries, feel free to reach out:
