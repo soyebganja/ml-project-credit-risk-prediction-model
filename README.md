@@ -164,8 +164,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any inquiries, feel free to reach out:
+- **LinkedIN**: https://linkedin.com/in/soyeb-ganja
 - **Email**: soyeb.ganja@gmail.com
 - **GitHub**: [soyebganja](https://github.com/soyebganja/ml-project-credit-risk-prediction-model)
-- **LinkedIN**: https://linkedin.com/in/soyeb-ganja
 
 ---
