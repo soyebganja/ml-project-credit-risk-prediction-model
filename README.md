@@ -1,5 +1,3 @@
-# ml-project-credit-risk-model
-
 # Credit Risk Prediction Model
 
 This project implements machine learning models to predict credit risk, helping financial institutions assess borrower reliability and make informed lending decisions based on various customer attributes and financial history.
@@ -132,8 +130,8 @@ Our final model achieves:
 
 Performance metrics by risk category:
 - Low risk: 96% accuracy
-- Medium risk: 84% accuracy
-- High risk: 89% accuracy
+- Medium risk: 74% accuracy
+- High risk: 59% accuracy
 
 ---
 
@@ -166,7 +164,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any inquiries, feel free to reach out:
-- **Email**: your.email@example.com
-- **GitHub**: [YourUsername](https://github.com/yourusername)
+- **Email**: soyeb.ganja@gmail.com
+- **GitHub**: [soyebganja](https://github.com/soyebganja/ml-project-credit-risk-prediction-model)
+- **LinkedIN**: https://linkedin.com/in/soyeb-ganja
 
 ---
